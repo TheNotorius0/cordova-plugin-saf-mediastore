@@ -20,12 +20,7 @@
 				<param name="android-package" value="com.makiwin.saf_mediastore.SafMediastore"/>
 			</feature>
 		</config-file>
-
-		<config-file parent="/manifest" target="AndroidManifest.xml">
-			<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />                
-			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="32" />       		
-		</config-file>
-
+		
 		<source-file src="src/android/com/makiwin/saf_mediastore/SafMediastore.java" target-dir="src/com/makiwin/saf_mediastore/"/>
 	</platform>
 </plugin>
