@@ -4,6 +4,8 @@
 
 Removed the permissions "READ_EXTERNAL_STORAGE" and "WRITE_EXTERNAL_STORAGE" in order to be compliant with Google Play Games on PC (Beta)
 
+Fixed saveFile on Android 9 and older: they don't know the json extension, so no file picker opened and saveFile failed right away. A json file now gets "application/json"
+
 ## Read and save files using the Storage Access Framework and Mediastore
 
 This plugin allows you to read and save files using the Storage Access Framework and Mediastore on Android only.

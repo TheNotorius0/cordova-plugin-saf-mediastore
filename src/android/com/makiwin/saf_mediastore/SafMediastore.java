@@ -292,8 +292,12 @@ public class SafMediastore extends CordovaPlugin implements ValueCallback<String
 				debugLog(e);
 			}
 			if (filename != null) {
-				intent.setType(MimeTypeMap.getSingleton()
-						.getMimeTypeFromExtension(filename.substring(filename.lastIndexOf('.') + 1)));
+				String extension = filename.substring(filename.lastIndexOf('.') + 1);
+				String mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+				// Android 9 and older don't know json, and a CREATE_DOCUMENT intent without a type opens no file picker
+				if (mimeType == null && extension.equals("json"))
+					mimeType = "application/json";
+				intent.setType(mimeType);
 				intent.putExtra(Intent.EXTRA_TITLE, filename);
 			}
 			String folder = null;
